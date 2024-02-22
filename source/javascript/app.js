@@ -12,6 +12,7 @@ const btnEraser = $.querySelector(".btn-eraser");
 const inputCountText = $.querySelector(".input-count");
 const showTextGenerator = $.querySelector(".show-textGenerator");
 const btnsLanguage = $.querySelectorAll("#btn");
+const btnCopy = $.querySelector(".btn-copy");
 
 
 // import * data from "data.js" :)
@@ -55,7 +56,7 @@ function textGeneratorHandler () {
     
     
     if (selection === "English") {
-        if (countTextValue === "") {
+        if (countTextValue === "" || countTextValue > 7) {
             randomTextGenerate = generateEnglish[Math.floor(Math.random() * generateEnglish.length)];
             showTextGenerator.innerHTML = `<p class="p-3 text-start">${randomTextGenerate}</p>`;
         } else {
@@ -69,9 +70,9 @@ function textGeneratorHandler () {
             showTextGenerator.innerHTML = resultGenerateFinal;
         }
     } else { //Persian = ?
-        if (countTextValue === "") {
+        if (countTextValue === "" || countTextValue > 7) {
             randomTextGenerate = generatePersian[Math.floor(Math.random() * generatePersian.length)];
-            showTextGenerator.innerHTML = `<p class="p-3 text-start">${randomTextGenerate}</p>`;
+            showTextGenerator.innerHTML = `<p class="p-3 text-end set-font">${randomTextGenerate}</p>`;
         } else {
             newTextData = generatePersian.slice(0 , countTextValue);
 
@@ -84,11 +85,41 @@ function textGeneratorHandler () {
     }   
 }
 
+// copy text :)
+function copyTextGenerator () {
+    let textData = showTextGenerator.querySelectorAll("p");
+    let copyTextData = "";
+    textData.forEach(function (text) {
+        copyTextData += text.innerHTML;
+    });
+    
+    navigator.clipboard.writeText(copyTextData);
+    
+    
+    Swal.fire({
+        title:"It was successful",
+        text:"Text copied successfully",
+        icon:"success",
+        showClass : {
+            popup:
+            `animate__animated
+            animate__fadeInUp
+            animate__faster`,
+        },
+        hideClass : {
+            popup : 
+            `animate__animated
+            animate__fadeOutDown
+            animate__faster`
+        }
+    })
+}
 
 
 // add event listener button element html
 btnPlus.addEventListener("click",plusCountGenerate);
 btnMinus.addEventListener("click",minusCountGenerate);
 btnGenerateText.addEventListener("click",textGeneratorHandler);
+btnCopy.addEventListener("click",copyTextGenerator);
 // selected language
 SelectingLanguage();
