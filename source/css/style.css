@@ -3,6 +3,16 @@
     margin: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: vazir;
+    src: url("../../public/font/Vazir-Medium.ttf");
+}
+:root {
+    --font-vazir : vazir;
+}
+.set-font {
+    font-family: var(--font-vazir);
+}
 body {
     width: 100%;
     height: 100vh;

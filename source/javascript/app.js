@@ -51,7 +51,7 @@ function SelectingLanguage () {
 // text Generator Handler
 function textGeneratorHandler () {
     let countTextValue = inputCountText.value;
-    let randomTextGenerate;
+    let randomTextGenerate , newTextData , resultGenerateFinal;
     
     
     if (selection === "English") {
@@ -59,16 +59,29 @@ function textGeneratorHandler () {
             randomTextGenerate = generateEnglish[Math.floor(Math.random() * generateEnglish.length)];
             showTextGenerator.innerHTML = `<p class="p-3 text-start">${randomTextGenerate}</p>`;
         } else {
-            let newTextData = generateEnglish.slice(0 , countTextValue);
+            newTextData = generateEnglish.slice(0 , countTextValue);
             
-            let resultGenerateFinal = newTextData.map(function (text) {
+            resultGenerateFinal = newTextData.map(function (text) {
                 return `<p class="p-3 text-start">${text}</p>`;
             }).join(" ");
 
             
             showTextGenerator.innerHTML = resultGenerateFinal;
         }
-    }
+    } else { //Persian = ?
+        if (countTextValue === "") {
+            randomTextGenerate = generatePersian[Math.floor(Math.random() * generatePersian.length)];
+            showTextGenerator.innerHTML = `<p class="p-3 text-start">${randomTextGenerate}</p>`;
+        } else {
+            newTextData = generatePersian.slice(0 , countTextValue);
+
+            resultGenerateFinal = newTextData.map(function (text) {
+                return `<p class="p-3 text-end set-font">${text}</p>`;
+            }).join(" ");
+
+            showTextGenerator.innerHTML = resultGenerateFinal;
+        }
+    }   
 }
 
 
