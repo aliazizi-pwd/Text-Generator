@@ -1,0 +1,23 @@
+*,*::after,*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100vh;
+}
+.show-textGenerator {
+    width: 500px;
+    height: 400px;
+    overflow: auto;
+}
+input {
+    width: 10px;
+    outline: none;
+}
+@media (max-width:600px) {
+    .show-textGenerator {
+        width: auto;
+    }
+}
