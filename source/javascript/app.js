@@ -116,6 +116,14 @@ function copyTextGenerator () {
 }
 
 
+// filter Tag Text Generator
+function filterTagTextGenerator (e) {
+    console.log(e.target.value);
+}
+
+
+
+
 // add event listener button element html
 btnPlus.addEventListener("click",plusCountGenerate);
 btnMinus.addEventListener("click",minusCountGenerate);
@@ -123,3 +131,5 @@ btnGenerateText.addEventListener("click",textGeneratorHandler);
 btnCopy.addEventListener("click",copyTextGenerator);
 // selected language
 SelectingLanguage();
+// change select
+filterTag.addEventListener("change",filterTagTextGenerator);
