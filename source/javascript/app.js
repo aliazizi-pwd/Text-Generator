@@ -58,12 +58,12 @@ function textGeneratorHandler () {
     if (selection === "English") {
         if (countTextValue === "" || countTextValue > 7) {
             randomTextGenerate = generateEnglish[Math.floor(Math.random() * generateEnglish.length)];
-            showTextGenerator.innerHTML = `<p class="p-3 text-start">${randomTextGenerate}</p>`;
+            showTextGenerator.innerHTML = `<p class="p-3 text-start set-font">${randomTextGenerate}</p>`;
         } else {
             newTextData = generateEnglish.slice(0 , countTextValue);
             
             resultGenerateFinal = newTextData.map(function (text) {
-                return `<p class="p-3 text-start">${text}</p>`;
+                return `<p class="p-3 text-start set-font">${text}</p>`;
             }).join(" ");
 
             
@@ -86,7 +86,10 @@ function textGeneratorHandler () {
 }
 
 // copy text :)
-function copyTextGenerator () {
+function copyTextGenerator (e) {
+
+    e.preventDefault();
+
     let textData = showTextGenerator.querySelectorAll("p");
     let copyTextData = "";
     textData.forEach(function (text) {
@@ -118,7 +121,35 @@ function copyTextGenerator () {
 
 // filter Tag Text Generator
 function filterTagTextGenerator (e) {
-    console.log(e.target.value);
+    let targetValue = e.target.value;
+    let textData = showTextGenerator.querySelectorAll("p");
+
+
+    textData.forEach(function (text) {
+        switch (targetValue) {
+            case "p":
+                text.className = "p-3 set-font p";
+                break;
+            case "h1":
+                text.className = "p-3 set-font h1";
+                break;
+            case "h2":
+                text.className = "p-3 set-font h2";
+                break;
+            case "h3":
+                text.className = "p-3 set-font h3";
+                break; 
+            case "h4":
+                text.className = "p-3 set-font h4";
+                break;
+            case "h5":
+                text.className = "p-3 set-font h5";
+                break;
+            case "h6":
+                text.className = "p-3 set-font h6";
+                break;
+        }
+    });
 }
 
 
