@@ -3,8 +3,6 @@ let countText = 0;
 let selection = "English";
 
 const btnGenerateText = $.querySelector(".btn-generate");
-const btnEnglish = $.querySelector(".btn-en");
-const btnPersian = $.querySelector(".btn-Pe");
 const btnPlus = $.querySelector(".btn-plus");
 const btnMinus = $.querySelector(".btn-minus");
 const filterTag = $.querySelector(".filterTag");
@@ -35,7 +33,7 @@ function minusCountGenerate () {
 }
 
 // Selecting Language, language selection
-function SelectingLanguage () {
+function selectingLanguage () {
     btnsLanguage.forEach(function (btn) {
         btn.addEventListener("click", function (e) {
             selection = e.target.dataset.name;
@@ -154,13 +152,23 @@ function filterTagTextGenerator (e) {
 
 
 
+// function for clear all text generate :)
+function eraserTextGenerator () {
+    inputCountText.value = "";
+    showTextGenerator.innerHTML = "";
+}
+
+
+
+
 
 // add event listener button element html
 btnPlus.addEventListener("click",plusCountGenerate);
 btnMinus.addEventListener("click",minusCountGenerate);
 btnGenerateText.addEventListener("click",textGeneratorHandler);
 btnCopy.addEventListener("click",copyTextGenerator);
+btnEraser.addEventListener("click",eraserTextGenerator);
 // selected language
-SelectingLanguage();
+selectingLanguage();
 // change select
 filterTag.addEventListener("change",filterTagTextGenerator);
