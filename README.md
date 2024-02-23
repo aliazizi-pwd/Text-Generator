@@ -18,7 +18,16 @@ To use the Text Generatore Application, follow the steps below:
 7. Eraser Text Generator function: Clears all generated text.
 8. If you have any other specific features or questions about the project, feel free to ask!
 
+## Demo project :)
 
-## Demo Project 
-![Demo Light Mode](./public/image/demo-1.png)
-![Demo Light Mode](./public/image/demo-2.png)
+<div align="center">
+  <img src="./public/image/demo-01.PNG">
+</div>
+
+<div align="center">
+  <img src="./public/image/demo-02.PNG">
+</div>
+
+<div align="center">
+  <img src="./public/image/demo-03.PNG">
+</div>
